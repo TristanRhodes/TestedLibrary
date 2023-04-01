@@ -101,6 +101,6 @@ Task("PackAndPush")
 	});
 
 Task("Default")
-    .IsDependentOn("InstallAndTestTemplate");
+    .IsDependentOn("BuildAndTest");
 
 RunTarget(target);
