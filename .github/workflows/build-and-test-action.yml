@@ -20,4 +20,4 @@ jobs:
         uses: cake-build/cake-action@v1
         with:
           script-path: build.cake
-          target: BuildAndTestTemplate
+          target: BuildAndTest

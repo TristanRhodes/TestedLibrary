@@ -20,6 +20,6 @@ jobs:
         uses: cake-build/cake-action@v1
         with:
           script-path: build.cake
-          target: PackAndPushTemplate
+          target: PackAndPush
           ApiKey: ${{ secrets.NUGET_APIKEY }}
           Source: ${{ vars.NUGET_SOURCE }}

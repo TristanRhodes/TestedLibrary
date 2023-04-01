@@ -64,16 +64,16 @@ Task("VersionInfo")
 		Information($"Full package Name: {fullPackageName}");
 	});
 
-Task("BuildAndTestTemplate")
+Task("BuildAndTest")
 	.Does(() => {
 		Information("Testing...");
 		DotNetTest(@"./TestedLibrary.sln");
 	});
 
-Task("PackAndPushTemplate")
+Task("PackAndPush")
 	.IsDependentOn("__PackageArgsCheck")
 	.IsDependentOn("VersionInfo")
-	.IsDependentOn("InstallAndTestTemplate")
+	.IsDependentOn("BuildAndTest")
 	.Does(() => {
 
 		// https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-pack
