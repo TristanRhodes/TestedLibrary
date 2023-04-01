@@ -22,11 +22,10 @@ var apiKey = Argument<string>("ApiKey", null)
 
 var packageName = Argument<string>("PackageName", null) 
 	?? EnvironmentVariable<string>("INPUT_PACKAGENAME", null) // Input from GHA to Cake
-	?? "Template.TestedLibrary";
+	?? "TestedLibrary";
 
 string versionNumber;
 string fullPackageName;
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // Setup / Teardown
@@ -89,7 +88,7 @@ Task("PackAndPush")
 			OutputDirectory = "./artifacts/",
 			MSBuildSettings = settings
 		};
-		DotNetPack("Template.TestedLibrary.csproj", packSettings);
+		DotNetPack("src/TestedLibrary/TestedLibrary.csproj", packSettings);
 
 		Information("Pushing...");
 		var pushSettings = new DotNetNuGetPushSettings
