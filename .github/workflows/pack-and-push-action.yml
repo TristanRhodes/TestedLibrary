@@ -1,0 +1,25 @@
+
+name: Pack and Push Template
+run-name: Pack and push project templates
+
+on:
+  push:
+    branches:    
+      - master
+
+jobs:
+  Pack-And-Push-Template:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # This is nescessary so it does not conflict with git-version
+
+      - name: Run cake step
+        uses: cake-build/cake-action@v1
+        with:
+          script-path: template.cake
+          target: PackAndPushTemplate
+          ApiKey: ${{ secrets.NUGET_APIKEY }}
+          Source: ${{ vars.NUGET_SOURCE }}
