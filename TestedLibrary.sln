@@ -7,13 +7,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8E442588-679
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7D9F3553-B04C-491A-B174-ADBD57A833C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestedLibrary.UnitTests", "test\TestedLibrary.UnitTests\TestedLibrary.UnitTests.csproj", "{2BFEAB9E-11F8-464C-8CF7-8B025D98D45E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestedLibrary.UnitTests", "test\TestedLibrary.UnitTests\TestedLibrary.UnitTests.csproj", "{2BFEAB9E-11F8-464C-8CF7-8B025D98D45E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestedLibrary", "src\TestedLibrary\TestedLibrary.csproj", "{AC531AF6-986D-41F1-8C9F-74D969890BE8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{6618C5A2-3A53-48FB-ACA5-EC3A355BD1D0}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
+		build.cake = build.cake
 		README.md = README.md
 	EndProjectSection
 EndProject

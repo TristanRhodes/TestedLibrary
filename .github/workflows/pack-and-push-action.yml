@@ -19,7 +19,7 @@ jobs:
       - name: Run cake step
         uses: cake-build/cake-action@v1
         with:
-          script-path: template.cake
+          script-path: build.cake
           target: PackAndPushTemplate
           ApiKey: ${{ secrets.NUGET_APIKEY }}
           Source: ${{ vars.NUGET_SOURCE }}

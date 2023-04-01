@@ -1,6 +1,6 @@
 
-name: Install and Test Template
-run-name: Install and Test Project Template
+name: Build and Test Template
+run-name: Build and Test Project Template
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-  Install-And-Test-Template:
+  Build-And-Test-Template:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -19,5 +19,5 @@ jobs:
       - name: Run cake step
         uses: cake-build/cake-action@v1
         with:
-          script-path: template.cake
-          target: InstallAndTestTemplate
+          script-path: build.cake
+          target: BuildAndTestTemplate
