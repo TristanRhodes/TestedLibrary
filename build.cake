@@ -51,20 +51,8 @@ Task("__PackageArgsCheck")
 			throw new ArgumentException("ApiKey is required");
 	});
 
-Task("VersionInfo")
+Task("__UnitTest")
 	.Does(() => {
-
-		var version = GitVersion();
-		Information(SerializeJsonPretty(version));
-		versionNumber = version.SemVer;
-
-		fullPackageName = $"{packageName}.{versionNumber}.nupkg";
-		Information($"Full package Name: {fullPackageName}");
-	});
-
-Task("BuildAndTest")
-	.Does(() => {
-
 		var settings = new DotNetTestSettings
 		{
 			Configuration = configuration,
@@ -80,9 +68,8 @@ Task("BuildAndTest")
 		DotNetTest(@"./TestedLibrary.sln", settings);
 	});
 
-Task("BuildAndBenchmark")
+Task("__Benchmark")
 	.Does(() => {
-
 		var settings = new DotNetRunSettings
 		{
 			Configuration = "Release", 
@@ -95,6 +82,24 @@ Task("BuildAndBenchmark")
 
 		DotNetRun(@"./test/TestedLibrary.Benchmark/TestedLibrary.Benchmark.csproj", settings);
 	});
+
+Task("VersionInfo")
+	.Does(() => {
+
+		var version = GitVersion();
+		Information(SerializeJsonPretty(version));
+		versionNumber = version.SemVer;
+
+		fullPackageName = $"{packageName}.{versionNumber}.nupkg";
+		Information($"Full package Name: {fullPackageName}");
+	});
+
+Task("BuildAndTest")
+	.IsDependentOn("__UnitTest")
+	.IsDependentOn("__Benchmark");
+
+Task("BuildAndBenchmark")
+	.IsDependentOn("__Benchmark");
 
 Task("PackAndPush")
 	.IsDependentOn("__PackageArgsCheck")
