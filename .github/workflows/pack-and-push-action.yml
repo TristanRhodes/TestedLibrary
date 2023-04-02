@@ -23,3 +23,9 @@ jobs:
           target: PackAndPush
           ApiKey: ${{ secrets.NUGET_APIKEY }}
           Source: ${{ vars.NUGET_SOURCE }}
+
+      - name: my-artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: ./artifacts/
