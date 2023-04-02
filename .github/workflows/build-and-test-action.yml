@@ -22,8 +22,8 @@ jobs:
           script-path: build.cake
           target: BuildAndTest
 
-      - name: my-artifact
+      - name: Publish Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
+          name: TestedLibrary Artifacts
           path: ./artifacts/

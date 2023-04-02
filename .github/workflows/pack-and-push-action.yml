@@ -24,8 +24,8 @@ jobs:
           ApiKey: ${{ secrets.NUGET_APIKEY }}
           Source: ${{ vars.NUGET_SOURCE }}
 
-      - name: my-artifact
+      - name: Publish Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
+          name: TestedLibrary Artifacts
           path: ./artifacts/
